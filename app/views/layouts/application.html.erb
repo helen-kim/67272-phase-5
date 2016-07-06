@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>A &amp; M Creamery</title>
+    <%= favicon_link_tag 'icon.gif' %>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+
+  <body>
+    
+    <%= javascript_include_tag "application" %>
+    <div id="container">
+      <%= render :partial => "partials/nav" %>
+      <div class="row">
+        <div class="small-12 large-centered columns" id="main_content">
+          <%= render :partial => "partials/flash" %>
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="small-12 columns" id="footer">
+        <%= render partial: 'partials/footer' %>
+      </div>
+    </footer> 
+  </body>
+</html>

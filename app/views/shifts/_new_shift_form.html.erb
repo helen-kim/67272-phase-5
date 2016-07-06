@@ -1,0 +1,14 @@
+<%= simple_form_for @shift, html: { :class => 'form-horizontal' }, remote: true do |f| %>
+  <%= f.input :date, :label => "Start Date", :as => :date, :start_year => Date.today.year, :order => [:month, :day, :year], input_html: {class: "avg"} %>
+    <%= f.input :start_time, input_html: {class: "avg"}, :start_time => Time.now %>
+    <%= f.input :end_time, input_html: {class: "avg"}, :default => 3.hours.from_now %>
+    <%= f.input :notes, input_html: {class: "avg"} %>
+  <!-- Note in this case that can't use @town; use params[:town_id] -->
+  <%= f.input :assignment_id, input_html: { value: get_assignment_id(params[:employee_id]) } %>
+
+  <p>&nbsp;</p>
+  <div class="form-actions">
+    <%= f.submit nil, class: 'button radius' %>
+    <%= link_to 'Cancel', employee_path(params[:employee_id]), class: 'button radius alert' %>
+  </div>
+<% end %>

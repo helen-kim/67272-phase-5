@@ -1,0 +1,39 @@
+<% if assignments.empty? %>
+  <p><em>There are no <%= state %> assignments at this time.</em></p>
+<% else %>
+  <h3><%= state.capitalize %> Assignments</h3>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Store</th>
+        <th>Employee</th>
+        <th class="centered">Pay</th>
+        <th>Start Date</th>
+        <% if state == 'past' %>
+          <th>End Date</th>
+        <% end %>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% assignments.each do |assignment| %>
+        <tr>
+          <td><%= link_to assignment.store.name, store_path(assignment.store) %></td>
+          <td><%= link_to assignment.employee.name, employee_path(assignment.employee) %></td>
+          <td class="centered"><%= assignment.pay_level %></td>
+          <td><%= assignment.start_date.strftime("%m/%d/%y") %></td>
+          <% if state == 'past' %>
+            <td><%= assignment.end_date.strftime("%m/%d/%y") %></td>
+          <% end %>
+          <td>
+            <%= link_to(edit_assignment_path(assignment), class: 'button tiny radius warning') do %>
+              &nbsp;Edit&nbsp;
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate assignments, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>  
+<% end %>
+<p>&nbsp;</p>

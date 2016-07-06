@@ -1,0 +1,266 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_self
+ *= require foundation.min
+ *= require normalize
+ *= require font-awesome.min
+ *= require foundation_and_overrides
+ *= require simple_form
+ *= require pickadate/default
+ *= require pickadate/default.date
+ *= require pickadate/default.time
+ *= require jquery-ui
+ */
+
+.secondary-tabs .tabs {
+  text-align: center; }
+  .secondary-tabs .tabs i {
+    font-size: 1.5rem;
+    margin-right: 1rem; }
+  .secondary-tabs .tabs li {
+    width: 25%; }
+    .secondary-tabs .tabs li:hover i {
+      font-size: 2rem; }
+  .secondary-tabs .tabs .tab-title > a {
+    background-color: #ffffff;
+    outline: none;
+    font-size: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    color: #1E824C; }
+.secondary-tabs .tabs-content {
+  border: 1px solid #999;
+  border-top: none; }
+  .secondary-tabs .tabs-content h3 {
+    margin-left: 2.7rem; }
+  .secondary-tabs .tabs-content h5 {
+    color: #e74c3c;
+    margin-left: 2.7rem; }
+  .secondary-tabs .tabs-content p {
+    margin-bottom: 0.2rem; }
+  .secondary-tabs .tabs-content .switch {
+    margin-bottom: 1rem; }
+    
+
+ .service {
+ border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  border: 1px solid #C6E9F4;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease; }
+  .service .service-icon-box {
+    background-color: #569;
+  border-radius: 50%;
+  display: table;
+  height: 100px;
+  margin: 0 auto;
+  width: 100px;
+  margin-top: -61px;
+  font-size: 3rem; }
+  .service-icon-box span {
+    color: #fff;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle; }
+  .service .service-heading {
+    position: relative;
+    top: 80px;
+    left: 100px;
+    -webkit-transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+  .service .service-description {
+    width: 40%;
+    margin: 0 auto;
+    opacity: 0;
+    -webkit-transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0); }
+  .service .service-icon-box > img.service-icon {
+    width: 40px; }
+  .service:hover {
+    border-color: #779CA7; }
+  .service:hover .service-icon-box {
+    top: -30px; }
+  .service:hover .service-heading {
+    top: -30px; }
+  .service:hover .service-description {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1); }
+
+ .box {
+  border-radius: 3px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  padding: 10px 25px;
+  display: block;
+  margin-top: 60px; }
+
+.box-icon {
+  background-color: #C6E9F4;
+  border-radius: 50%;
+  display: table;
+  height: 100px;
+  margin: 0 auto;
+  width: 100px;
+  margin-top: -61px;
+  font-size: 3rem; }
+  .box-icon span {
+    color: #fff;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle; }
+
+.info h4 {
+  font-size: 26px;
+  letter-spacing: 2px;
+  text-transform: uppercase; }
+.info p {
+  color: #717171;
+  font-size: 16px;
+  padding-top: 10px; }
+.info a {
+  border-radius: 2px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  transition: all 0.5s ease 0s; }
+  .info a:hover {
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.12);
+    transition: all 0.5s ease 0s; }
+
+ @media only screen and (min-width: 40.063em) {
+  .logo-wrapper {
+    position: relative;
+    text-align: center; }
+
+  .logo-wrapper .logo {
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    top: -2px;
+    margin-left: -46px; }
+
+  .top-bar-section ul.right {
+    width: 50%;
+    padding-left: 60px; }
+
+  .top-bar-section ul.right li {
+    float: left; }
+
+  .top-bar-section ul.left {
+    width: 50%;
+    padding-right: 60px; }
+
+  .top-bar-section ul.left li {
+    float: right; } }
+
+ .tl_name {
+  width: 225px;
+  display: block;
+  position: absolute;
+}
+
+.tl_date {
+  width: 65px;
+  display: block;
+  position: absolute;
+  margin-left: 250px;
+}
+
+.tl_controls {
+  width:  68px;
+  display: block;
+  margin-left: 330px;
+}
+
+.project_item {
+  background-color: #d1ecfb;
+  width: 400px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px solid blue;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.supertiny {
+  font-size:5px;
+  text-decoration:none;
+}
+
+.add_link {
+  font-size:75%;
+  font-style: normal;
+  font-weight: normal;
+}
+
+#title_area {
+  background-color: #ffffff;
+}
+
+#main_content {
+  margin-top: 10px;
+}
+
+#footer {
+  margin-top: 15px;
+  padding-top: 0px;
+  padding-bottom: 15px;
+  background-color:#ffffff;
+  color: #229944;
+  text-align: center;
+}
+
+#footer a {
+  color: #c25975;
+  text-decoration: none;
+}
+
+#footer a:hover {
+  color: #f092b0;
+  text-decoration: none;
+}
+
+#copy {
+  font-size: 85%;
+}
+
+table {
+  border-collapse:collapse;
+}
+
+table th.centered, table td.centered {
+    text-align: center;
+}
+
+.note {
+  font-style: italic;
+  font-size: 80%;
+}
+li.well {
+  list-style-type: none;
+  margin-left: -10px;
+}
+
+.pagination ul > li > a, .pagination ul > li > span {
+  border-left-width: 1px;
+}
+
+label {
+  padding-right: 4px;
+}

@@ -1,0 +1,19 @@
+<% unless @today_shifts.nil? || @today_shifts.empty? %>
+  <%= render partial: "shifts_list", locals: {shifts: @today_shifts, state: "today's"} %>
+<% end %>
+
+<% unless @upcoming_shifts.nil? || @upcoming_shifts.empty? %>
+  <%= render partial: "shifts_list", locals: {shifts: @upcoming_shifts, state: 'upcoming'} %>
+<% end %>
+
+<% unless @past_shifts.nil? || @past_shifts.empty? %>
+  <%= render partial: "shifts_list", locals: {shifts: @past_shifts, state: 'past'} %>
+<% end %>
+
+<% unless @incomplete_shifts.nil? || @incomplete_shifts.empty? %>
+  <%= render partial: "shifts_list", locals: {shifts: @incomplete_shifts, state: 'incomplete'} %>
+<% end %>
+
+<% unless @completed_shifts.nil? || @completed_shifts.empty? %>
+  <%= render partial: "shifts_list", locals: {shifts: @completed_shifts, state: 'completed'} %>
+<% end %>

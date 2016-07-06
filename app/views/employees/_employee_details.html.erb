@@ -1,0 +1,28 @@
+
+<p>
+  <h1>
+    <%= @employee.proper_name %>
+  </h1>
+</p>
+
+<p>
+  <b>Date of Birth:</b> <%= @employee.date_of_birth.strftime("%m/%d/%y") %>
+</p>
+
+<p>
+  <b>Phone:</b> <%= number_to_phone @employee.phone unless @employee.phone.nil? %>
+</p>
+
+<% if logged_in? && ((current_user.role? :admin) || (current_user.employee == @employee))%>
+  <p>
+    <b>SSN:</b> <%= @employee.ssn %>
+  </p>
+
+  <p>
+    <b>Role:</b> <%= @employee.role.capitalize %>
+  </p>
+
+  <p>
+    <b>Active:</b> <%= @employee.active ? "Yes" : "No" %>
+  </p>
+<% end %>

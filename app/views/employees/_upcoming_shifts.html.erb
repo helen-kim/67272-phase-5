@@ -1,0 +1,45 @@
+<h3>Today's Shifts</h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Start</th>
+      <th>End</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @todays_shifts.each do |shift| %>
+      <tr>
+        <td><%= shift.date.strftime("%m/%d/%y") %></td>
+        <td><%= shift.start_time.strftime("%I:%M %p") %></td>
+        <td><%= shift.end_time.strftime("%I:%M %p") %></td>
+        <% if (current_user.role? :admin) || (current_user.role? :manager) %>
+        <td>
+          <%= link_to(edit_shift_path(shift), class: 'button tiny radius warning') do %>
+            &nbsp;Edit&nbsp;
+          <% end %>
+        </td>
+        <td>
+          <%= link_to(shift_path(shift), method: 'delete', data: {confirm: "Are you sure you want to permanently delete this shift?"}, class: 'button tiny radius alert') do %>
+            &nbsp;Delete&nbsp;
+          <% end %>
+        </td>
+        <%else%>
+          <td>
+            <%= link_to(start_shift_path(id: shift.id), class: 'button tiny radius warning') do %>
+              &nbsp;Start&nbsp;
+            <% end %>
+          </td>
+          <td>
+            <%= link_to(end_shift_path(id: shift.id), class: 'button tiny radius alert') do %>
+              &nbsp;End&nbsp;
+            <% end %>
+          </td>
+        <%end%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @todays_shifts, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next", param_name: "upcoming" %>

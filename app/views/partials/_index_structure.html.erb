@@ -1,0 +1,16 @@
+<div class="row">
+    <!-- primary partial gets displayed here in main div -->
+    <%= render partial: "#{primary}" %>
+    <!-- sometimes we want another partial below -->
+    <% unless secondary.nil? %>
+      <p>&nbsp;</p>
+      <%= render partial: "#{secondary}" %>
+    <% end %>
+</div>
+</br>
+<% if logged_in? and current_user.role? :admin %>
+  <%= link_to(eval("new_#{model_name}_path"), class: "button radius") do %>
+    <!-- <i class="fa fa-plus"></i> -->
+    &nbsp;Add a New <%= model_name.capitalize %>
+  <% end %>
+<% end %>

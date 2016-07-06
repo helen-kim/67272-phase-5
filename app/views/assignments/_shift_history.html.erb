@@ -1,0 +1,30 @@
+<h3>Shift History</h3>
+<% if @shifts.nil? || @shifts.empty? %>
+  <p>There are no shifts in your shift history!</p>
+<%else%>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Start</th>
+        <th>End</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @shifts.each do |shift| %>
+        <tr>
+          <td><%= shift.date.strftime("%m/%d/%y") %></td>
+          <td><%= shift.start_time.strftime("%I:%M %p") %></td>
+          <td><%= shift.end_time.strftime("%I:%M %p") %></td>
+          <td>
+            <%= link_to(shift_path(shift), class: 'button tiny radius') do %>
+              &nbsp;View&nbsp;
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @shifts, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next", param_name: "upcoming" %>
+<%end%>

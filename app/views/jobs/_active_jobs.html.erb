@@ -1,0 +1,25 @@
+<% if @active_jobs.empty? %>
+  <p><em>There are no current jobs at this time.</em></p>
+<% else %>
+  <h3>Active Jobs</h3>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @active_jobs.each do |job| %>
+        <tr>
+          <td><%= job.name %></td>
+          <td>
+            <%= link_to "Edit", edit_job_path(job), class: 'button tiny radius' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @active_jobs, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+
+<% end %>

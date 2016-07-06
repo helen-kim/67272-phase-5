@@ -1,0 +1,26 @@
+<h2><%= @store.name %></h2>
+
+<p>
+  <b>Address:</b><br>
+  <%= @store.street %><br />
+  <%= @store.city %>, <%= @store.state %> <%= @store.zip %>
+</p>
+
+<p>
+  <b>Phone:</b><br>
+  <%= number_to_phone @store.phone %>
+</p>
+
+<p>
+  <b>Active:</b> 
+  <%= @store.active ? "Yes" : "No" %>
+</p>
+
+<p>
+  <h4>Available Flavors</h4>
+  <% @current_flavors.each do |flavor| %>
+        <div class="service">
+          <p class="service-description"><%= flavor.name %></p>
+        </div>
+  <% end %>
+</p>

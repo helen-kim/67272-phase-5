@@ -1,0 +1,131 @@
+<!-- Navigation -->
+<div class="contain-to-grid sticky">
+
+  <nav class="top-bar" data-topbar>
+    <ul class="title-area">
+      <li class="name">
+        <h1><a class="logo show-for-small-only" href="#"><img src="http://placehold.it/50x50" /></a></h1>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <section class="top-bar-section">
+
+      <div class="logo-wrapper hide-for-small-only">
+        <div class="logo">
+          <%= link_to image_tag('icon.gif'), home_path %></li>
+        </div>
+      </div>
+
+      <!-- Left Nav Section -->
+      <ul class="left">
+        <% if current_user.role? :admin %>   
+          <li class="has-dropdown">
+            <a href="#">Stores</a>
+            <ul class="dropdown">
+              <li><%= link_to "View Stores", stores_path %></li>
+              <li><%= link_to "Add a Store", new_store_path %></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#">Employees</a>
+            <ul class="dropdown">
+              <li><%= link_to "View Employees", employees_path %></li>
+              <li><%= link_to "Add an Employee", new_employee_path %></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#">Assignments</a>
+            <ul class="dropdown">
+              <li><%= link_to "View All Current Assignments", assignments_path(assn_type: "current") %></li>
+              <li><%= link_to "View All Past Assignments", assignments_path(assn_type: "past") %></li>
+              <li><%= link_to "Add an Assignment", new_assignment_path %></li>
+            </ul>
+          </li>
+        <% elsif current_user.role? :manager %>
+          <li class="has-dropdown">
+            <a href="#">Manage Employees</a>
+            <ul class="dropdown">
+              <li><%= link_to "View Employees", employees_path %></li>
+            </ul>
+          </li> 
+          <li class="has-dropdown">
+            <a href="#">Manage Stores</a>
+            <ul class="dropdown">
+              <li><%= link_to "View All Stores", stores_path %></li>
+              <li><%= link_to "Change Available Flavors", edit_store_path(current_user.employee.current_assignment.store) %></li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to "Stores", stores_path %></li>
+        <% end %>
+      </ul>
+
+      <!-- Right Nav Section -->
+      <ul class="right">
+        <% if current_user.role? :admin %>
+          <li class="has-dropdown">
+            <a href="#">Shifts</a>
+            <ul class="dropdown">
+              <li><%= link_to "View Incomplete Shifts", shifts_path(shift_type: "incomplete") %></li>
+              <li><%= link_to "View Completed Shifts", shifts_path(shift_type: "completed") %></li>
+              <li><%= link_to "View Today's Shifts", shifts_path(shift_type: "today") %></li>
+              <li><%= link_to "View Upcoming Shifts", shifts_path(shift_type: "upcoming") %></li>
+              <li><%= link_to "View Past Shifts", shifts_path(shift_type: "past") %></li>
+              <li><%= link_to "Add a New Shift", new_shift_path %></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#">Flavors</a>
+            <ul class="dropdown">
+              <li><%= link_to "View Flavors", flavors_path %></li>
+              <li><%= link_to "Add a Flavor", new_flavor_path %></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#">Jobs</a>
+            <ul class="dropdown">
+              <li><%= link_to "View Jobs", jobs_path %></li>
+              <li><%= link_to "Add a Job", new_job_path %></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#">My Info</a>
+            <ul class="dropdown">
+              <li><%= link_to "My Account", employee_path(current_user.employee) %></li>
+            </ul>
+          </li>
+        <% elsif current_user.role? :manager %>
+          <li class="has-dropdown">
+            <a href="#">Manage Shifts</a>
+            <ul class="dropdown">
+              <li><%= link_to "View Incomplete Shifts", shifts_path(shift_type: "incomplete") %></li>
+              <li><%= link_to "View Completed Shifts", shifts_path(shift_type: "completed") %></li>
+              <li><%= link_to "View Today's Shifts", shifts_path(shift_type: "today") %></li>
+              <li><%= link_to "View Upcoming Shifts", shifts_path(shift_type: "upcoming") %></li>
+              <li><%= link_to "View Past Shifts", shifts_path(shift_type: "past") %></li>
+              <li><%= link_to "Add a New Shift", new_shift_path %></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#">My Info</a>
+            <ul class="dropdown">
+              <li><%= link_to "My Assignment", assignment_path(current_user.employee.current_assignment) %></li>
+              <li><%= link_to "My Account", employee_path(current_user.employee) %></li>
+            </ul>
+          </li>
+        <% else %>
+            <li><%= link_to "My Account", employee_path(current_user.employee) %></li>
+        <% end %>
+        
+        <li>
+          <% if logged_in? %>
+            <%= link_to 'Logout', logout_path %>
+          <% else %>
+            <%= link_to 'Login', login_path %>
+          <% end %>
+        </li>
+      </ul>
+    </section>
+  </nav>
+</div><!-- /navigation -->

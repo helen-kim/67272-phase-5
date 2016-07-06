@@ -1,0 +1,25 @@
+<% if @active_flavors.empty? %>
+  <p><em>There are no current flavors at this time.</em></p>
+<% else %>
+  <h3>Active flavors</h3>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @active_flavors.each do |flavor| %>
+        <tr>
+          <td><%= flavor.name %></td>
+          <td>
+            <%= link_to "Edit", edit_flavor_path(flavor), class: 'button tiny radius' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @active_flavors, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+
+<% end %>

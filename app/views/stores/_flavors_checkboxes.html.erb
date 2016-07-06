@@ -1,0 +1,9 @@
+<fieldset>
+<legend>Update Available Flavors</legend>
+  <% for flavor in @current_flavors  %>
+     <%= check_box_tag "store[flavor_ids][]", flavor.id, @store.flavors.include?(flavor) %>
+     <%= flavor.name %>
+     <br />
+  <% end  %>
+  <br>
+</fieldset>

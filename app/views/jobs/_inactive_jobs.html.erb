@@ -1,0 +1,10 @@
+<% unless @inactive_jobs.empty? %>
+  <div class="panel callout radius">
+    <h3>Inactive Jobs</h3>
+    <ul>
+      <% @inactive_jobs.each do |job| %>
+        <li><%= link_to job.name, job_path(job) %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

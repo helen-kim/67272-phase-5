@@ -1,0 +1,35 @@
+<h3>Assignment History</h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Store</th>
+      <th>Dates</th>
+      <th class="centered">Pay Level</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @assignments.each do |assignment| %>
+      <tr>
+        <td><%= link_to assignment.store.name, store_path(assignment.store) %></td>
+        <td>
+          <%= assignment.start_date.strftime("%m/%d/%y") %>
+          <% if assignment.end_date.nil? && (current_user.role? :admin)%>
+            &nbsp;&nbsp;&nbsp;
+            <%= link_to(edit_assignment_path(assignment), class: 'button tiny radius warning') do %>
+              &nbsp;End&nbsp;
+            <% end %>
+          <% else %>
+            &nbsp;-&nbsp;
+            <% if assignment.end_date.nil?%>
+            TBD
+            <%else%>
+              <%= assignment.end_date.strftime("%m/%d/%y")%>
+            <%end%>
+          <% end %>
+        </td>
+        <td class="centered"><%= assignment.pay_level %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @assignments, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>

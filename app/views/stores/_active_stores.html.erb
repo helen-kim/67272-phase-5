@@ -1,0 +1,23 @@
+<% if @active_stores.empty? %>
+  <p><em>There are no active stores at this time.</em></p>
+<% else %>
+    <% @active_stores.each do |store| %>
+      <div class="medium-4 columns">
+        <div class="box">
+          <%= image_tag 'icon.gif', class: "box-icon" %>
+          <div class="info">
+            <h4 class="text-center"><%= store.name %></h4>
+            <p><%= store.name %> is one of our many Pittsburgh creameries. To view location, contact information, and flavor details, click below!</p>
+            <%= link_to "View", store_path(store), class: "button tiny radius" %>
+            <% if logged_in? && current_user.role?(:admin) %>
+              <%= link_to(edit_store_path(store), class: 'button tiny radius warning') do %>
+                    &nbsp;Edit&nbsp;
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+<% end %>

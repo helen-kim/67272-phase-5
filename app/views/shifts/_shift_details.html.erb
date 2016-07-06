@@ -1,0 +1,25 @@
+<h2>Shift Info</h2>
+
+<p>
+  <b>Date:</b><br>
+  <%= @shift.date.strftime("%m/%d/%y") %><br />
+</p>
+
+<p>
+  <b>Start:</b><br>
+  <%= @shift.start_time.strftime("%I:%M %p") %>
+</p>
+
+<p>
+  <b>End:</b><br>
+  <%= @shift.end_time.strftime("%I:%M %p") %>
+</p>
+
+<p>
+  <b>Status:</b><br>
+  <% if @shift.completed? %>
+    Completed
+  <% else %>
+    Incomplete
+  <% end %>
+</p>
