@@ -1,4 +1,4 @@
-# 67272-phase-5
+# AMC Creamery
 Final project for 67272 Application Design and Development: 
 
 Using all our accumulated knowledge in rails development, we individually built a rails web app that would assist with employee management. The backend was built using Ruby on Rails and the frontend was built using Foundations.
